@@ -55,7 +55,7 @@ public class SpotifyRepository {
     }
 
     public Album createAlbum(String title, String artistName) {
-        Artist ar = null;
+        Artist ar = new Artist();
         for(Artist artist:artists){
             if(artist.getName().equals(artistName));
             ar = artist;
@@ -94,7 +94,7 @@ public class SpotifyRepository {
     }
 
     public Song createSong(String title, String albumName, int length) throws Exception{
-        Album al = null;
+        Album al = new Album();
         for(Album album:albums){
             if(album.getTitle().equals(albumName)){
                 al = album;
@@ -128,7 +128,7 @@ public class SpotifyRepository {
     }
 
     public Playlist createPlaylistOnLength(String mobile, String title, int length) throws Exception {
-        User user = null;
+        User user = new User();
         for(User user1 :users){
             if(user1.getMobile()== mobile){
                 user =user1;
@@ -171,7 +171,7 @@ public class SpotifyRepository {
     }
 
     public Playlist createPlaylistOnName(String mobile, String title, List<String> songTitles) throws Exception {
-        User user = null;
+        User user = new User();
         for(User user1 : users){
             if(user1.getMobile() == mobile){
                 user = user1;
@@ -217,7 +217,7 @@ public class SpotifyRepository {
     }
 
     public Playlist findPlaylist(String mobile, String playlistTitle) throws Exception {
-        User user = null;
+        User user = new User();
         for(User user1:users){
             if(user1.getMobile()==mobile){
                 user=user1;
@@ -261,7 +261,7 @@ public class SpotifyRepository {
     }
 
     public Song likeSong(String mobile, String songTitle) throws Exception {
-        User user = null;
+        User user = new User();
         for(User user1:users){
             if(user1.getMobile()==mobile){
                 user=user1;
@@ -291,7 +291,7 @@ public class SpotifyRepository {
                 list.add(user);
                 songLikeMap.put(song,list);
 
-                Album album=null;
+                Album album=new Album();
                 for(Album album1:albumSongMap.keySet()){
                     List<Song> songList = albumSongMap.get(album1);
                     if(songList.contains(song)){
@@ -299,7 +299,7 @@ public class SpotifyRepository {
                         break;
                     }
                 }
-                Artist artist = null;
+                Artist artist = new Artist();
                 for(Artist artist1:artistAlbumMap.keySet()){
                     List<Album> albumList = artistAlbumMap.get(artist1);
                     if (albumList.contains(album)){
@@ -319,7 +319,7 @@ public class SpotifyRepository {
             list.add(user);
             songLikeMap.put(song,list);
 
-            Album album=null;
+            Album album=new Album();
             for(Album album1:albumSongMap.keySet()){
                 List<Song> songList = albumSongMap.get(album1);
                 if(songList.contains(song)){
@@ -327,7 +327,7 @@ public class SpotifyRepository {
                     break;
                 }
             }
-            Artist artist = null;
+            Artist artist = new Artist();
             for(Artist artist1:artistAlbumMap.keySet()){
                 List<Album> albumList = artistAlbumMap.get(artist1);
                 if (albumList.contains(album)){
@@ -345,7 +345,7 @@ public class SpotifyRepository {
 
     public String mostPopularArtist() {
         int max = 0;
-        Artist artist1=null;
+        Artist artist1=new Artist();
 
         for(Artist artist:artists){
             if(artist.getLikes()>=max){
@@ -361,7 +361,7 @@ public class SpotifyRepository {
 
     public String mostPopularSong() {
         int max = 0;
-        Song song = null;
+        Song song = new Song();
 
         for (Song song1 : songLikeMap.keySet()) {
             if (song1.getLikes() >= max) {
