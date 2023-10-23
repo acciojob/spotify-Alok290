@@ -271,7 +271,7 @@ public class SpotifyRepository {
         if(user==null)
             throw new Exception("User does not exist");
 
-        Song song = null;
+        Song song = new Song();
         for(Song song1:songs){
             if(song1.getTitle()==songTitle){
                 song=song1;
@@ -307,7 +307,7 @@ public class SpotifyRepository {
                         break;
                     }
                 }
-                int likes1 = artist.getLikes() +1;
+                int likes1 = artist.getLikes()+1;
                 artist.setLikes(likes1);
                 artists.add(artist);
                 return song;
